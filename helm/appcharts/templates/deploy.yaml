@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: doc-deployment
+  labels:
+    app: doc
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: doc
+  template:
+    metadata:
+      labels:
+        app: doc
+    spec:
+      containers:
+      - name: doc
+        image: {{ .Values.appimage }}
+        ports:
+        - containerPort: 5000

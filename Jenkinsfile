@@ -45,7 +45,7 @@ pipeline {
             steps {
                     sh "pwd"
                     sh "ls"
-                    sh "helm upgrade --install --force vproifle-stack helm/appcharts --set appimage=${registry}:${BUILD_NUMBER} --namespace prod"
+                    sh "sudo helm upgrade --install --force vproifle-stack helm/appcharts --set appimage=${registry}:${BUILD_NUMBER} --namespace prod"
             }
         }
 

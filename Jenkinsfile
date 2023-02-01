@@ -43,6 +43,8 @@ pipeline {
         stage('Kubernetes Deploy') {
 	  agent { label 'KOPS' }
             steps {
+                    sh "pwd"
+                    sh "ls"
                     sh "helm upgrade --install --force vproifle-stack helm/appcharts --set appimage=${registry}:${BUILD_NUMBER} --namespace prod"
             }
         }
